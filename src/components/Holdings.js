@@ -19,22 +19,21 @@ const Holdings = (props) => {
       totalSpent += +trans.amountSpent;
     }
   }
-  console.log(cryptoHoldings);
   return (
     <table>
-        <thead>
-      <tr>
+      <thead>
+        <tr>
           <th>Coin</th>
           <th>Qty</th>
           <th>Cost Basis</th>
           <th>Amount Spent</th>
-      </tr>
-        </thead>
+        </tr>
+      </thead>
       <tbody>
         {Object.keys(cryptoHoldings).map((row) => {
           return (
             <HoldingRow
-              key={cryptoHoldings[row].key}
+              key={row}
               coin={row}
               qty={cryptoHoldings[row].qty}
               amountSpent={cryptoHoldings[row].amountSpent}
