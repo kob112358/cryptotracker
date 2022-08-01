@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
+import TransactionList from "./components/TransactionList";
+import { transactionList } from "./assets/transactions.js";
+import NewTransaction from "./components/NewTransaction";
+import Holdings from "./components/Holdings.js";
 
 function App() {
+  const [allTransactions, setAllTransactions] = useState(transactionList);
+
+  const onAddNew = (transaction) => {
+    setAllTransactions((prevState) => {
+      return [...prevState, transaction]
+    })
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>Crypto Tracker Baby</h2>
+      <h3>Holdings Component</h3>
+      <Holdings transactions={allTransactions} />
+      <h3>Transaction List</h3>
+      <NewTransaction addNewTransaction={onAddNew} />
+      <TransactionList transactions={allTransactions} />
     </div>
   );
 }
