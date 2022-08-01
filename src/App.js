@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TransactionList from "./components/TransactionList";
 import { transactionList } from "./assets/transactions.js";
 import NewTransaction from "./components/NewTransaction";
