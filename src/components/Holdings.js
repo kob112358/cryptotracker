@@ -33,7 +33,6 @@ const Holdings = (props) => {
       totalSpent += +trans.amountSpent;
     }
   }
-
   return (
     <table>
       <thead>
@@ -48,7 +47,7 @@ const Holdings = (props) => {
         {Object.keys(cryptoHoldings).map((row) => {
           return (
             <HoldingRow
-              key={cryptoHoldings[row].key}
+              key={row}
               coin={row}
               qty={cryptoHoldings[row].qty}
               amountSpent={cryptoHoldings[row].amountSpent}
